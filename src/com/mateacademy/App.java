@@ -12,5 +12,17 @@ public class App {
         System.out.println(list.size());
         list.clear();
         System.out.println(list.size());
+
+        MyList<String> list1 = new MyLinkedList<>();
+        list1.add("first");
+        list1.add("second");
+        list1.add("third");
+        list1.add("fourth");
+
+        list1.remove(3);
+        System.out.println(list1.get(0));
+        System.out.println(list1.get(1));
+        System.out.println(list1.get(2));
+        System.out.println(list1.size());
     }
 }
