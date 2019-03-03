@@ -24,5 +24,15 @@ public class App {
         System.out.println(list1.get(1));
         System.out.println(list1.get(2));
         System.out.println(list1.size());
+
+        MyMap<Integer, String> map = new MyHashMap<>();
+        map.put(1, "first");
+        map.put(2, "second");
+        map.put(3, "third");
+        map.remove(2);
+        System.out.println(map.get(1));
+        System.out.println(map.size());
+        map.clear();
+        System.out.println(map.size());
     }
 }
