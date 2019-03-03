@@ -29,7 +29,7 @@ public class MyArrayList<E> implements MyList<E> {
      * If it has not, we double the size of array*/
     public void add(E item) {
         if (size == array.length - 1) {
-            arrayResize(array.length * 2);
+            resizeArray(array.length * 2);
         }
         array[size++] = item;
     }
@@ -42,7 +42,7 @@ public class MyArrayList<E> implements MyList<E> {
         array[size] = null;
         size--;
         if (array.length > DEFAULT_CAPACITY && size < array.length / CUT_RATE)  //if array has too much length, we
-            arrayResize(array.length / 2);                           //decrease it for 2 times
+            resizeArray(array.length / 2);                           //decrease it for 2 times
     }
 
     public void clear() {
@@ -50,7 +50,7 @@ public class MyArrayList<E> implements MyList<E> {
             array[i] = null;
         }
         size = 0;
-        arrayResize(DEFAULT_CAPACITY);
+        resizeArray(DEFAULT_CAPACITY);
     }
 
     public int size() {
@@ -66,7 +66,7 @@ public class MyArrayList<E> implements MyList<E> {
         return (E) array[index];
     }
 
-    private void arrayResize(int newLength) {
+    private void resizeArray(int newLength) {
         Object[] newArray = new Object[newLength];
         System.arraycopy(array, 0, newArray, 0, size);
         array = newArray;
