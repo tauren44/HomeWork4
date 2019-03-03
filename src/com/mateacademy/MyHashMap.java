@@ -12,7 +12,7 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
     private static final int DEFAULT_CAPACITY = 16;
     private float threshold;
 
-    @SuppressWarnings("uncheked")
+    @SuppressWarnings("/unchecked/")
     public MyHashMap() {
         hashTable = new Node[DEFAULT_CAPACITY];
         threshold = hashTable.length * LOADFACTOR;
