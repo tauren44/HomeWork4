@@ -19,14 +19,23 @@ public class MyLinkedList<E> implements MyList<E> {
 
     public MyLinkedList() {
         first = new Node<>(null, null, null);
-        last = first;
+        last = new Node<>(null, null, null);
     }
 
     public void add(E e) {
-        Node<E> temp = last;
-        temp.item = e;
-        last = new Node<>(temp, null, null);
-        temp.next = last;
+        if (first.item == null) {
+            first.prev = last;
+            first.next = last;
+            first.item = e;
+        } else if (last.item == null) {
+            last.prev = first;
+            last.next = first;
+            last.item = e;
+        } else {
+            Node<E> node = new Node<>(last.prev, e, last);
+            last.prev = node;
+            node.prev.next = node;
+        }
         size++;
     }
 
