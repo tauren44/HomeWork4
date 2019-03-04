@@ -36,7 +36,7 @@ public class App {
         System.out.println(map.size());
 
         System.out.println("-------------------------------------");
-        MyStackArray<String> stack = new MyStackArray<>();
+        MyStack<String> stack = new MyStackArray<>();
         stack.add("first");
         stack.add("second");
         stack.add("third");
