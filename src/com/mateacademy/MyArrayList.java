@@ -7,13 +7,17 @@ public class MyArrayList<E> implements MyList<E> {
     private Object[] array;
     private int size;
 
-    /**If no capacity chosen, it will be default*/
+    /**
+     * If no capacity chosen, it will be default
+     */
     public MyArrayList() {
         array = new Object[DEFAULT_CAPACITY];
     }
 
-    /**If capacity is more than default, method will create list with chosen capacity.
-     * If capacity is from 0 to 10, method will create list with default capacity*/
+    /**
+     * If capacity is more than default, method will create list with chosen capacity.
+     * If capacity is from 0 to 10, method will create list with default capacity
+     */
     public MyArrayList(int capacity) {
         if (capacity > DEFAULT_CAPACITY) {
             array = new Object[capacity];
@@ -25,8 +29,10 @@ public class MyArrayList<E> implements MyList<E> {
         }
     }
 
-    /**Before adding a new item, we ensure that array has enough size.
-     * If it has not, we double the size of array*/
+    /**
+     * Before adding a new item, we ensure that array has enough size.
+     * If it has not, we double the size of array
+     */
     public void add(E item) {
         if (size == array.length - 1) {
             resizeArray(array.length * 2);
@@ -34,15 +40,18 @@ public class MyArrayList<E> implements MyList<E> {
         array[size++] = item;
     }
 
-    /**Method is moving items left for 1 index, then last item of array sets to null*/
+    /**
+     * Method is moving items left for 1 index, then last item of array sets to null
+     */
     public void remove(int index) {
         if (size - index >= 0) {
             System.arraycopy(array, index + 1, array, index, size - index);
         }
         array[size] = null;
         size--;
-        if (array.length > DEFAULT_CAPACITY && size < array.length / CUT_RATE)  //if array has too much length, we
-            resizeArray(array.length / 2);                           //decrease it for 2 times
+        if (array.length > DEFAULT_CAPACITY && size < array.length / CUT_RATE) {
+            resizeArray(array.length / 2);
+        }
     }
 
     public void clear() {

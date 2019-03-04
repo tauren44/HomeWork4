@@ -34,5 +34,25 @@ public class App {
         System.out.println(map.size());
         map.clear();
         System.out.println(map.size());
+
+        System.out.println("-------------------------------------");
+        MyStackArray<String> stack = new MyStackArray<>();
+        stack.add("first");
+        stack.add("second");
+        stack.add("third");
+        stack.add("fourth");
+
+        System.out.println(stack.size());
+
+        System.out.println(stack.peek());
+        System.out.println(stack.size());
+
+        stack.remove();
+        System.out.println(stack.size());
+
+        System.out.println(stack.pop());
+        System.out.println(stack.size());
+        stack.clear();
+        System.out.println(stack.size());
     }
 }
