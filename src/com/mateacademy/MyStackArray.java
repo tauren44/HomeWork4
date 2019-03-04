@@ -4,7 +4,6 @@ public class MyStackArray<E> implements MyStack<E> {
     private final int DEFAULT_CAPACITY = 10;
     private final int CUT_RATE = 3;
     private Object[] array;
-    private int top;
     private int size;
 
 
@@ -17,37 +16,35 @@ public class MyStackArray<E> implements MyStack<E> {
             throw new IllegalArgumentException("Illegal Capacity: " +
                     capacity);
         }
-        top = -1;
     }
+
     public MyStackArray() {
         array = new Object[DEFAULT_CAPACITY];
-        top = -1;
     }
 
     public boolean isEmpty() {
-        return (top == -1);
+        return (size == 0);
     }
 
     public void add(E item) {
         if (size == array.length - 1) {
             resizeArray(array.length * 2);
         }
-        array[++top] = item;
-        size++;
+        array[size++] = item;
     }
 
     public void remove() {
-        array[top--] = null;
-        size--;
-        if (array.length > DEFAULT_CAPACITY && size < array.length / CUT_RATE) {
-            resizeArray(array.length / 2);
+
+        if (!isEmpty()) {
+            array[size--] = null;
+            if (array.length > DEFAULT_CAPACITY && size < array.length / CUT_RATE) {
+                resizeArray(array.length / 2);
+            }
         }
     }
 
-    @Override
     public void clear() {
         array = null;
-        top = -1;
         size = 0;
     }
 
@@ -61,7 +58,7 @@ public class MyStackArray<E> implements MyStack<E> {
             System.out.println("Stack is empty");
             return null;
         }
-        return (E) array[top];
+        return (E) array[size-1];
     }
 
     @SuppressWarnings("/unchecked/")
@@ -70,8 +67,7 @@ public class MyStackArray<E> implements MyStack<E> {
             System.out.println("Stack is empty");
             return null;
         }
-        size--;
-        return (E) array[top--];
+        return (E) array[--size];
     }
 
     private void resizeArray(int newLength) {
