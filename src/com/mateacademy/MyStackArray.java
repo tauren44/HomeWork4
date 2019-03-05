@@ -26,7 +26,7 @@ public class MyStackArray<E> implements MyStack<E> {
         return (size == 0);
     }
 
-    public void add(E item) {
+    public void push(E item) {
         if (size == array.length - 1) {
             resizeArray(array.length * 2);
         }
@@ -44,7 +44,9 @@ public class MyStackArray<E> implements MyStack<E> {
     }
 
     public void clear() {
-        array = null;
+        for (int i = 0; i < size; i++) {
+            array[i] = null;
+        }
         size = 0;
     }
 

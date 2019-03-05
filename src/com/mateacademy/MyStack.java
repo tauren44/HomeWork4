@@ -1,7 +1,7 @@
 package com.mateacademy;
 
 public interface MyStack<E> {
-    void add(E item);
+    void push(E item);
     void remove();
     void clear();
     int size();

@@ -19,7 +19,7 @@ public class MyLinkedList<E> implements MyList<E> {
 
     public MyLinkedList() {
         first = new Node<>(null, null, null);
-        last = new Node<>(null, null, null);
+        last = first;
     }
 
     public void add(E e) {

@@ -37,10 +37,10 @@ public class App {
 
         System.out.println("-------------------------------------");
         MyStack<String> stack = new MyStackArray<>();
-        stack.add("first");
-        stack.add("second");
-        stack.add("third");
-        stack.add("fourth");
+        stack.push("first");
+        stack.push("second");
+        stack.push("third");
+        stack.push("fourth");
 
         System.out.println(stack.size());
 
